@@ -34,3 +34,17 @@ const createTuple = function(a, b, c, ...d) {
 createTuple('It', 'be', 'could', 'anyone', 'no one'); 
 ```
 The spread operator will gather the fourth and beyond arguments passed into an array so you can capture as many arguments as possible.
+
+A good example, extracted from [here](https://frontendmasters.com/courses/js-fundamentals-functional-v2/passing-arguments-part-2/), is to pass the spread arguments to functions:
+
+```
+const ifElse = (condition, isTrue, isFalse, ...args) => {
+  console.log(args) 
+  return condition ? isTrue(...args) : isFalse(...args);
+};
+
+const fn1 = () => {console.log("print true!");};
+const fn2 = () => {console.log("print false!");};
+
+ifElse(true, fn1, fn2, 'HI', 'BYE', 'Hello');
+```
